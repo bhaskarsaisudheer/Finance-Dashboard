@@ -47,7 +47,7 @@ export default function Insights({ insights }) {
           <div>Not enough data to generate insights yet.</div>
         </div>
       ) : (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, padding: "20px 24px" }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" style={{ padding: "20px 24px" }}>
           {items.map((it, idx) => (
             <motion.div
               key={it.title}

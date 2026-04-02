@@ -213,11 +213,11 @@ export default function App() {
   };
 
   return (
-    <div style={{ maxWidth: 1240, margin: "0 auto", padding: "32px 24px", display: "flex", flexDirection: "column", gap: 24 }}>
+    <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 py-6 md:py-8 flex flex-col gap-6">
       <motion.header
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}
+        className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0 mb-2"
       >
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <div style={{ width: 44, height: 44, borderRadius: 12, background: "var(--accent)", color: "white", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 12px rgba(26, 86, 219, 0.25)" }}>
@@ -253,7 +253,7 @@ export default function App() {
 
       <SummaryCards totalBalance={totals.totalBalance} income={totals.income} expenses={totals.expenses} />
 
-      <div style={{ display: "grid", gridTemplateColumns: "2fr 1.2fr", gap: 24, alignItems: "stretch" }}>
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1.2fr] gap-6 items-stretch">
         <TrendChart series={trendSeries} />
         <SpendingBreakdown categories={categoryTotals} />
       </div>

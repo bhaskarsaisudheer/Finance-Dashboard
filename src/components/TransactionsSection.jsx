@@ -196,14 +196,16 @@ export default function TransactionsSection({
           value={state.filters.query}
           onChange={e => dispatch({ type: "SET_FILTERS", filters: { query: e.target.value } })}
           size="small"
-          style={{ width: 220, borderRadius: 8, fontSize: 13 }}
+          className="w-full sm:w-[220px]"
+          style={{ borderRadius: 8, fontSize: 13 }}
         />
 
         <Select
           size="small"
           value={state.filters.type}
           onChange={v => dispatch({ type: "SET_FILTERS", filters: { type: v } })}
-          style={{ width: 130, fontSize: 13 }}
+          className="w-full sm:w-[130px]"
+          style={{ fontSize: 13 }}
           placeholder="Type"
           suffixIcon={<FilterOutlined style={{ fontSize: 11 }} />}
         >
@@ -216,7 +218,8 @@ export default function TransactionsSection({
           size="small"
           value={state.filters.category}
           onChange={v => dispatch({ type: "SET_FILTERS", filters: { category: v } })}
-          style={{ width: 160, fontSize: 13 }}
+          className="w-full sm:w-[160px]"
+          style={{ fontSize: 13 }}
           placeholder="Category"
         >
           <Option value="all">All Categories</Option>
@@ -227,7 +230,8 @@ export default function TransactionsSection({
           size="small"
           value={state.filters.sortBy}
           onChange={v => dispatch({ type: "SET_FILTERS", filters: { sortBy: v } })}
-          style={{ width: 150, fontSize: 13 }}
+          className="w-full sm:w-[150px]"
+          style={{ fontSize: 13 }}
           placeholder="Sort by"
         >
           <Option value="date_desc">Newest First</Option>
@@ -253,6 +257,7 @@ export default function TransactionsSection({
         columns={columns}
         rowKey="id"
         size="small"
+        scroll={{ x: 'max-content' }}
         pagination={visibleTransactions.length > 20 ? { pageSize: 20, size: "small", showSizeChanger: false } : false}
         locale={{
           emptyText: (
