@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --bg: #f8f9fb;
+    --sidebar: #ffffff;
+    --panel: #ffffff;
+    --text: #111827;
+    --text-secondary: #6b7280;
+    --border: #e5e7eb;
+    --border-light: #f3f4f6;
+    --accent: #1a56db;
+    --accent-light: #eff6ff;
+    --success: #12b76a;
+    --success-light: #ecfdf5;
+    --danger: #f04438;
+    --danger-light: #fef3f2;
+    --warning: #f79009;
+    --warning-light: #fff8eb;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 10px 40px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .dark {
+    --bg: #0d0f14;
+    --sidebar: #111318;
+    --panel: #161a22;
+    --text: #f0f2f5;
+    --text-secondary: #8d95a3;
+    --border: #252a35;
+    --border-light: #1e2330;
+    --accent: #4d8df5;
+    --accent-light: #172036;
+    --success: #34d399;
+    --success-light: #052e16;
+    --danger: #f87171;
+    --danger-light: #2d0f0f;
+    --warning: #fbbf24;
+    --warning-light: #2d1e0a;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lg: 0 10px 40px rgba(0,0,0,0.4);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Override Ant Design token globally */
+  .ant-btn-primary {
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
+  }
+
+  .ant-input,
+  .ant-select-selector,
+  .ant-picker {
+    border-color: var(--border) !important;
+    background: var(--panel) !important;
+    color: var(--text) !important;
+  }
+
+  .ant-table {
+    background: var(--panel) !important;
+    color: var(--text) !important;
+  }
+
+  .ant-table-thead > tr > th {
+    background: var(--border-light) !important;
+    color: var(--text-secondary) !important;
+    border-bottom: 1px solid var(--border) !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+  }
+
+  .ant-table-tbody > tr > td {
+    border-bottom: 1px solid var(--border) !important;
+    background: transparent !important;
+  }
+
+  .ant-table-tbody > tr:hover > td {
+    background: var(--border-light) !important;
+  }
+
+  .dark .ant-table-tbody > tr:hover > td {
+    background: #1e2330 !important;
+  }
+
+  .ant-modal-content {
+    background: var(--panel) !important;
+    border: 1px solid var(--border) !important;
+  }
+
+  .ant-modal-header {
+    background: var(--panel) !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+
+  .ant-modal-title {
+    color: var(--text) !important;
+  }
+
+  .ant-form-item-label > label {
+    color: var(--text-secondary) !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+/* Recharts tooltip override */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: var(--panel) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Stat card number animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-value-enter {
+  animation: countUp 0.4s ease forwards;
+}
